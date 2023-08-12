@@ -1,6 +1,4 @@
- import React from 'react'
- 
- import CustomButton from './CustomButton';
+  import CustomButton from './CustomButton';
  
  const AIPicker = ({ prompt, setPrompt, generatingImg, handleSubmit }) => {
    return (
@@ -29,7 +27,7 @@
             />
 
             <CustomButton
-              type='outline'
+              type='filled'
               title='AI Full'
               handleClick={() => handleSubmit('full')}
               customStyles='text-xs'
