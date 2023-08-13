@@ -9,6 +9,8 @@ import { EditorTabs, FilterTabs, DecalTypes } from '../config/constants';
 import { fadeAnimation, slideAnimation } from '../config/motion';
 import { AIPicker, ColorPicker, CustomButton, FilePicker, Tab } from '../components';
 
+const apiKey = 'http://localhost:8080/api/v1';
+
 const Customizer = () => {
   const snap = useSnapshot(state);
 
@@ -21,9 +23,7 @@ const Customizer = () => {
     logoShirt: true,
     stylishShirt: false,
   });
-  // handle file upload
-
-
+  
   // show tab content depending on active tab
   const generateTabContent = () => {
     switch (activeEditorTab) {
@@ -53,7 +53,7 @@ const Customizer = () => {
     try {
       setGeneratingImg(true);
 
-      const response = await fetch('http://localhost:8080/api/v1/dalle', {
+      const response = await fetch(`${apiKey}/dalle`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
